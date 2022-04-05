@@ -1,0 +1,46 @@
+
+
+.hamburger {
+}
+
+.sideMenu {
+    position: absolute;
+    left: 0;
+    top: 4rem;
+    background-color: #cdc4da;
+    opacity: 100%;
+    border-color: black;
+    height:100%;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    width:10%;
+}
+
+.sideMenuClosed {
+    position: absolute;
+    left: 0;
+    top: 4rem;
+    background-color: #cdc4da;
+    opacity: 100%;
+    border-color: black;
+    height:100%;
+    width:3%;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+.hamburgerContainer {
+    display: block;
+    margin-left: 10px;
+    color: #52958e;
+}
+
+
+.category {
+    display: block;
+    background-color: #ded9ea;
+    border-width: 2px;
+    margin-bottom: 2px;
+    border-color: #ebeaf1;
+    border-style: solid;
+}

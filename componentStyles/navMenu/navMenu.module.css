@@ -1,5 +1,19 @@
 .navContainer {
+    width: 100%;
     background-color: #52958e;
-    height: 8rem;
-    margin-bottom: 3rem;
+    display: flex;
+    height: 6rem;
+}
+
+
+.menuItemList {
+    display: table;   /* Allow the centering to work */
+    margin: 0 auto;
+}
+
+.menuItem {
+    display: inline;
+    border-radius: 5px;
+    height: 30px;
+    color: #649ece;
 }

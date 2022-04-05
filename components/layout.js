@@ -3,13 +3,23 @@ import Image from 'next/image'
 import NavContainer from './navigationMenu/navContainer.js'
 import styles from '../componentStyles/layout.module.css'
 import utilStyles from '../styles/utils.module.css'
+import { useState } from 'react';
 import Link from 'next/link'
+import SideMenu from "./navigationMenu/sideMenu";
 
 const name = 'Jack Burtis'
 export const siteTitle = 'Jack Burtis'
 
 export default function Layout({ children, home }) {
+    const [menuOpen, setMenuOpen] = useState(false)
+    function changeMenu() {
+        setMenuOpen(!menuOpen);
+    }
+    let menu = menuOpen ? "hi" : "";
+
     return (
+        <>
+        <NavContainer onClick={() => changeMenu()}> </NavContainer>
         <div className={styles.container}>
             <Head>
                 <link rel="icon" href="/favicon.ico" />
@@ -26,7 +36,6 @@ export default function Layout({ children, home }) {
                 <meta name="og:title" content={siteTitle} />
                 <meta name="twitter:card" content="summary_large_image" />
             </Head>
-            <NavContainer> </NavContainer>
             <header className={styles.header}>
                 {home ? (
                     <>
@@ -34,8 +43,8 @@ export default function Layout({ children, home }) {
                             priority
                             src="/images/profPic.jpg"
                             className={utilStyles.borderCircle}
-                            height={144}
-                            width={144}
+                            height={300}
+                            width={300}
                             alt={name}
                         />
                         <h1 className={utilStyles.heading2Xl}>{name}</h1>
@@ -62,6 +71,7 @@ export default function Layout({ children, home }) {
                     </>
                 )}
             </header>
+            <SideMenu open={menuOpen} onClick={() => changeMenu()}> </SideMenu>
             <main className={styles.bodyContent}>{children}</main>
             {!home && (
                 <div className={styles.backToHome}>
@@ -71,5 +81,6 @@ export default function Layout({ children, home }) {
                 </div>
             )}
         </div>
+    </>
     )
 }
