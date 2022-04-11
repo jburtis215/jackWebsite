@@ -1,4 +1,3 @@
-import styles from "../../componentStyles/navMenu/navMenu.module.css"
 import Link from "next/link";
 
 export default function MenuItem({children, link}) {

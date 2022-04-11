@@ -1,16 +1,16 @@
 import Head from 'next/head'
 import Image from 'next/image'
-import NavContainer from './navigationMenu/navContainer.js'
-import styles from '../componentStyles/layout.module.css'
-import utilStyles from '../styles/utils.module.css'
+import NavContainer from '../navigationMenu/navContainer.js'
+import styles from '../../componentStyles/layout.module.css'
+import utilStyles from '../../styles/utils.module.css'
 import { useState } from 'react';
 import Link from 'next/link'
-import SideMenu from "./navigationMenu/sideMenu";
+import SideMenu from "../navigationMenu/sideMenu";
 
 const name = 'Jack Burtis'
 export const siteTitle = 'Jack Burtis'
 
-export default function Layout({header, children, home }) {
+export default function Layout({header, title, children, home }) {
     const [menuOpen, setMenuOpen] = useState(false)
     function changeMenu() {
         setMenuOpen(!menuOpen);
@@ -19,8 +19,10 @@ export default function Layout({header, children, home }) {
     return (
         <>
         <NavContainer> </NavContainer>
-        <div className={styles.container}>
+            <SideMenu open={menuOpen} onClick={() => changeMenu()}> </SideMenu>
+        <div className={menuOpen? styles.openContainer : styles.container}>
             <Head>
+                <title>{title}</title>
                 <link rel="icon" href="/favicon.ico" />
                 <meta
                     name="description"
@@ -66,7 +68,6 @@ export default function Layout({header, children, home }) {
                     </>
                 )}
             </header>
-            <SideMenu open={menuOpen} onClick={() => changeMenu()}> </SideMenu>
             <main className={styles.bodyContent}>{children}</main>
             {!home && (
                 <div className={styles.backToHome}>
