@@ -1,17 +1,26 @@
 .container {
+    transition:  margin-left 1s;
+}
+
+.openContainer {
+    margin-left: 200px;
+    transition:  margin-left 1s;
 }
 
 .bodyContent {
-    max-width: 36rem;
+    justify-content: center;
+    align-items: center;
     padding: 0 1rem;
     margin: 3rem auto 6rem;
 }
 
 .header {
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    justify-content: space-evenly;
     margin-top: 5rem;
+}
+
+.menuOffset {
 }
 
 .backToHome {

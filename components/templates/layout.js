@@ -10,16 +10,15 @@ import SideMenu from "./navigationMenu/sideMenu";
 const name = 'Jack Burtis'
 export const siteTitle = 'Jack Burtis'
 
-export default function Layout({ children, home }) {
+export default function Layout({header, children, home }) {
     const [menuOpen, setMenuOpen] = useState(false)
     function changeMenu() {
         setMenuOpen(!menuOpen);
     }
-    let menu = menuOpen ? "hi" : "";
 
     return (
         <>
-        <NavContainer onClick={() => changeMenu()}> </NavContainer>
+        <NavContainer> </NavContainer>
         <div className={styles.container}>
             <Head>
                 <link rel="icon" href="/favicon.ico" />
@@ -41,33 +40,29 @@ export default function Layout({ children, home }) {
                     <>
                         <Image
                             priority
-                            src="/images/profPic.jpg"
-                            className={utilStyles.borderCircle}
-                            height={300}
-                            width={300}
+                            src="/images/canoePic.jpeg"
+                            className={utilStyles.profPic}
+                            height={450}
+                            width={350}
                             alt={name}
                         />
+                        <div className="text-center w-2/5">
                         <h1 className={utilStyles.heading2Xl}>{name}</h1>
+                            <div className="mt-5">Hi, I'm Jack.  I'm a software developer with a passion for computer graphics, animation, and film.  I'm currently working out of Seattle.</div>
+
+                            <div className="mt-5">
+                            I have experience in both coding Graphics software and creating 3D animation using software such as Maya.
+                            </div>
+
+                            <div className="mt-5">This is my website! I wrote it using Next.js/React frameworks. </div>
+                            <div className="mt-5">Please click on the links below to see examples of my work.</div>
+                        </div>
                     </>
                 ) : (
                     <>
-                        <Link href="/">
-                            <a>
-                                <Image
-                                    priority
-                                    src="/images/profile.jpg"
-                                    className={utilStyles.borderCircle}
-                                    height={108}
-                                    width={108}
-                                    alt={name}
-                                />
-                            </a>
-                        </Link>
-                        <h2 className={utilStyles.headingLg}>
-                            <Link href="/">
-                                <a className={utilStyles.colorInherit}>{name}</a>
-                            </Link>
-                        </h2>
+                    <h1 className={utilStyles.heading2Xl}>
+                        {header}
+                    </h1>
                     </>
                 )}
             </header>

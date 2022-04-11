@@ -4,7 +4,6 @@
     font-weight: 800;
     letter-spacing: -0.05rem;
     margin: 1rem 0;
-    float:left;
 }
 
 .headingXl {
@@ -26,8 +25,37 @@
     line-height: 1.5;
 }
 
-.borderCircle {
-    border-radius: 5px;
+.profPic {
+    border-radius: 15px;
+    animation: fadeIn ease 2s;
+    -webkit-animation: fadeIn ease 2s;
+    -moz-animation: fadeIn ease 2s;
+    -o-animation: fadeIn ease 2s;
+    -ms-animation: fadeIn ease 2s;
+}
+@keyframes fadeIn {
+    0% {opacity:0;}
+    100% {opacity:1;}
+}
+
+@-moz-keyframes fadeIn {
+    0% {opacity:0;}
+    100% {opacity:1;}
+}
+
+@-webkit-keyframes fadeIn {
+    0% {opacity:0;}
+    100% {opacity:1;}
+}
+
+@-o-keyframes fadeIn {
+    0% {opacity:0;}
+    100% {opacity:1;}
+}
+
+@-ms-keyframes fadeIn {
+    0% {opacity:0;}
+    100% {opacity:1;}
 }
 
 .colorInherit {

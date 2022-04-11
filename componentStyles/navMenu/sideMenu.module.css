@@ -4,43 +4,85 @@
 }
 
 .sideMenu {
-    position: absolute;
-    left: 0;
+    background-color: #e9d6ee;
+    position: fixed;
     top: 4rem;
-    background-color: #cdc4da;
     opacity: 100%;
-    border-color: black;
     height:100%;
+    width:200px;
+    transition: left 1s;
+    box-shadow: 7px 0 7px -2px #888;
     border-top-right-radius: 5px;
     border-bottom-right-radius: 5px;
-    width:10%;
+}
+
+.sideMenuOpen {
+    left: 0;
 }
 
 .sideMenuClosed {
-    position: absolute;
-    left: 0;
-    top: 4rem;
-    background-color: #cdc4da;
-    opacity: 100%;
-    border-color: black;
-    height:100%;
-    width:3%;
-    border-top-right-radius: 5px;
-    border-bottom-right-radius: 5px;
+    overflow: hidden;
+    left: -160px;
 }
 
 .hamburgerContainer {
+    margin-right: 5px;
+    margin-left: auto;
+    width: 50px;
+    transition:  margin-left 1s, margin-right 1s;
+}
+
+.hamburgerMenu {
+    position: fixed;
+    top: 4rem;
+    opacity: 100%;
+    height:100%;
+    width:60px;
+    transition: left 1s;
+}
+.hamburgerMenuClose {
+    left: 55px;
+}
+
+.hamburgerMenuOpen {
+
+    left: 210px;
+}
+
+.category {
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px 5px;
     display: block;
-    margin-left: 10px;
-    color: #52958e;
+    height: 50px;
+    margin: 35px 15px 15px auto;
+    border-style: solid;
+    transition:  width 1s;
+    overflow: hidden;
+    font-weight: bolder;
 }
 
 
-.category {
-    display: block;
-    background-color: #ded9ea;
-    border-width: 2px;
-    margin-bottom: 2px;
-    border-color: #ebeaf1;
-    border-style: solid;
+.categoryOpen {
+    width: 180px;
+}
+
+.categoryClose {
+    width: 180px;
+}
+@keyframes fadeInOpacity {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeOutOpacity {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
 }
