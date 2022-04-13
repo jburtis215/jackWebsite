@@ -10,13 +10,13 @@ export default function SideMenuCategory({name, childLinks}) {
 
     return (
         <>
-            <div onClick={onClickItem} className={styles.topCategory}>
-                <span className="ml-5 pt-7">
+            <div  className={styles.topCategory + ' ' + styles.menuItem}>
+                <div className="ml-5 pt-7" onClick={onClickItem}>
                     {name}
                     <i className={styles.arrow + ' ' + (menuOpen ? styles.down : styles.side)}/>
-                </span>
+                </div>
+                {(menuOpen ? childLinks : '')}
             </div>
-            {(menuOpen ? childLinks : '')}
         </>
     )
 }

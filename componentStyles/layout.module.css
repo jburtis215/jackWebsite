@@ -1,4 +1,5 @@
 .container {
+    margin-left: 35px;
     transition:  margin-left 1s;
 }
 
@@ -20,9 +21,51 @@
     margin-top: 5rem;
 }
 
+.mainContent {
+    font-size: larger;
+    margin-top: 35px;
+    opacity: 0;
+    animation-fill-mode: forwards;
+    animation: fadeIn ease 2s;
+    animation-delay: 1s;
+    -webkit-animation: fadeIn ease 2s;
+    -webkit-animation-delay: 1s;
+    -webkit-animation-fill-mode: forwards;
+    -moz-animation: fadeIn ease 2s;
+    -moz-animation-delay: 1s;
+    -moz-animation-fill-mode: forwards;
+    -o-animation: fadeIn ease 2s;
+    -o-animation-delay: 1s;
+    -o-animation-fill-mode: forwards;
+}
 .menuOffset {
 }
 
 .backToHome {
     margin: 3rem 0 0;
+}
+
+@keyframes fadeIn {
+    0% {opacity:0;}
+    100% {opacity:1;}
+}
+
+@-moz-keyframes fadeIn {
+    0% {opacity:0;}
+    100% {opacity:1;}
+}
+
+@-webkit-keyframes fadeIn {
+    0% {opacity:0;}
+    100% {opacity:1;}
+}
+
+@-o-keyframes fadeIn {
+    0% {opacity:0;}
+    100% {opacity:1;}
+}
+
+@-ms-keyframes fadeIn {
+    0% {opacity:0;}
+    100% {opacity:1;}
 }

@@ -5,7 +5,7 @@ export default function SideMenuItem({open, children, link}) {
     const extraCategoryClass = open ? styles.categoryOpen: styles.categoryClose;
     return (
         <Link href={link}>
-            <div className={styles.category + ' ' + extraCategoryClass + ' hover:bg-blue-200'}>
+            <div className={styles.menuItem + ' ' + styles.standaloneMenuItem + ' ' + extraCategoryClass + ' hover:bg-blue-200'}>
                 <span className="ml-5 pt-7">
                     {children}
                 </span>

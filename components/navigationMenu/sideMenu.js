@@ -12,11 +12,14 @@ export default function SideMenu({open, onClick}) {
     const fluidSim = (
         <ChildMenuItem open={open} link='/posts/animation'>Fluid Simulation</ChildMenuItem>
     );
+    const rayTracing = (
+        <ChildMenuItem open={open} link='/posts/animation'>Ray Tracing</ChildMenuItem>
+    );
     return (
        <div className="flex">
            <div className={styles.sideMenu + ' ' + extraMenuClass}>
                <div>
-                   <SideMenuCategory name={"Projects"} childLinks={fluidSim}/>
+                   <SideMenuCategory name={"Projects"} childLinks={[fluidSim, rayTracing]}/>
                    <SideMenuItem open={open} link='/posts/dinnerClub'>Dinner Club</SideMenuItem>
                    <SideMenuItem open={open} link='/posts/animation'>Fun & Games</SideMenuItem>
                    <SideMenuItem open={open} link='/posts/animation'>Resume</SideMenuItem>
