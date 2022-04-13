@@ -20,7 +20,7 @@ export default function Layout({header, title, children, home }) {
         <>
         <NavContainer> </NavContainer>
             <SideMenu open={menuOpen} onClick={() => changeMenu()}> </SideMenu>
-        <div className={menuOpen? styles.openContainer : styles.container}>
+        <div className={styles.container}>
             <Head>
                 <title>{title}</title>
                 <link rel="icon" href="/favicon.ico" />
@@ -37,25 +37,23 @@ export default function Layout({header, title, children, home }) {
                 <meta name="og:title" content={siteTitle} />
                 <meta name="twitter:card" content="summary_large_image" />
             </Head>
-            <header className={styles.header}>
+            <header className={styles.header + ' ' + (menuOpen ? styles.openContainer : '')}>
                 {home ? (
                     <>
                         <Image
                             priority
                             src="/images/canoePic.jpeg"
-                            className={utilStyles.profPic}
+                            className={utilStyles.profPic + ' ' + (menuOpen ? styles.openContainer : '')}
                             height={675}
                             width={525}
                             alt={name}
                         />
-                        <div className="text-center w-2/5">
-                        <h1 className={utilStyles.heading2Xl}>{name}</h1>
+                        <div className="text-center w-240 pl-10">
+                            <h1 className={utilStyles.heading2Xl}>{name}</h1>
                             <Paragraph>I'm a software developer with a passion for computer graphics, animation, and film.  I'm currently working out of Seattle.</Paragraph>
-
                             <Paragraph>
                             I have experience in both coding Graphics software and creating 3D animation using software such as Maya.
                             </Paragraph>
-
                             <Paragraph>Welcome to my website! I wrote it using Next.js/React frameworks. </Paragraph>
                         </div>
                     </>

@@ -1,11 +1,9 @@
 .container {
-    margin-left: 35px;
-    transition:  margin-left 1s;
+    margin-left: 55px;
 }
 
 .openContainer {
-    margin-left: 200px;
-    transition:  margin-left 1s;
+    margin-left: 165px;
 }
 
 .bodyContent {
@@ -13,11 +11,13 @@
     align-items: center;
     padding: 0 1rem;
     margin: 3rem auto 6rem;
+    transition:  margin-left 1s;
 }
 
 .header {
+    transition:  margin-left 1s;
     display: flex;
-    justify-content: space-evenly;
+    justify-content: center;
     margin-top: 5rem;
 }
 

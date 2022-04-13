@@ -9,6 +9,7 @@
 }
 
 .sideMenu {
+    z-index:111;
     background-color: #bcc1d2;
     position: fixed;
     top: 4rem;
@@ -61,7 +62,7 @@
 
 .subCategory {
     height: 25px;
-    margin-top: 15px;
+    margin-top: 25px;
     font-weight: 300;
 }
 
@@ -76,7 +77,7 @@
 
 .standaloneMenuItem {
     font-weight: bolder;
-    height: 50px;
+    height: 30px;
     margin-bottom: 35px;
 }
 
