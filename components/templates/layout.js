@@ -4,10 +4,10 @@ import NavContainer from '../navigationMenu/navContainer.js'
 import styles from '../../componentStyles/layout.module.css'
 import utilStyles from '../../styles/utils.module.css'
 import { useState } from 'react';
-import Link from 'next/link'
 import SideMenu from "../navigationMenu/sideMenu";
+import Paragraph from "../mainPageComponents/paragraph";
 
-const name = 'Jack Burtis'
+const name = 'Hi,  I\'m Jack.'
 export const siteTitle = 'Jack Burtis'
 
 export default function Layout({header, title, children, home }) {
@@ -44,20 +44,19 @@ export default function Layout({header, title, children, home }) {
                             priority
                             src="/images/canoePic.jpeg"
                             className={utilStyles.profPic}
-                            height={450}
-                            width={350}
+                            height={675}
+                            width={525}
                             alt={name}
                         />
                         <div className="text-center w-2/5">
                         <h1 className={utilStyles.heading2Xl}>{name}</h1>
-                            <div className="mt-5">Hi, I'm Jack.  I'm a software developer with a passion for computer graphics, animation, and film.  I'm currently working out of Seattle.</div>
+                            <Paragraph>I'm a software developer with a passion for computer graphics, animation, and film.  I'm currently working out of Seattle.</Paragraph>
 
-                            <div className="mt-5">
+                            <Paragraph>
                             I have experience in both coding Graphics software and creating 3D animation using software such as Maya.
-                            </div>
+                            </Paragraph>
 
-                            <div className="mt-5">This is my website! I wrote it using Next.js/React frameworks. </div>
-                            <div className="mt-5">Please click on the links below to see examples of my work.</div>
+                            <Paragraph>Welcome to my website! I wrote it using Next.js/React frameworks. </Paragraph>
                         </div>
                     </>
                 ) : (
@@ -69,13 +68,6 @@ export default function Layout({header, title, children, home }) {
                 )}
             </header>
             <main className={styles.bodyContent}>{children}</main>
-            {!home && (
-                <div className={styles.backToHome}>
-                    <Link href="/">
-                        <a>← Back to home</a>
-                    </Link>
-                </div>
-            )}
         </div>
     </>
     )

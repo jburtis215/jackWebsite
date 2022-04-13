@@ -2,25 +2,29 @@
 import React from "react";
 import styles from '../../componentStyles/navMenu/sideMenu.module.css'
 import Image from "next/image";
-import Link from 'next/link'
+import SideMenuItem from "./sideMenuItem";
+import SideMenuCategory from "./sideMenuCategory";
+import ChildMenuItem from "./childMenuItem";
 export default function SideMenu({open, onClick}) {
     const extraMenuClass = open ? styles.sideMenuOpen : styles.sideMenuClosed;
-    const extraCategoryClass = open ? styles.categoryOpen: styles.categoryClose;
-    const extraBurgerClass = open ? styles.hamburgerOpen: styles.hamburgerClose;
     const hamburgerMenuClass = open ? styles.hamburgerMenuOpen: styles.hamburgerMenuClose;
+
+    const fluidSim = (
+        <ChildMenuItem open={open} link='/posts/animation'>Fluid Simulation</ChildMenuItem>
+    );
     return (
        <div className="flex">
            <div className={styles.sideMenu + ' ' + extraMenuClass}>
                <div>
-                   <div className={styles.category + ' ' + extraCategoryClass + ' hover:bg-blue-200'}><Link href='/posts/animation'><span className="ml-5">Animation Sample</span></Link></div>
-                   <div className={styles.category + ' ' + extraCategoryClass + ' hover:bg-blue-200'}><Link href='/'><span className="ml-5">hi</span></Link></div>
-               <div className={styles.category + ' ' + extraCategoryClass + ' hover:bg-blue-200'}><Link href='/'><span className="ml-5">hi</span></Link></div>
-                   <div className={styles.category + ' ' + extraCategoryClass + ' hover:bg-blue-200'}><Link href='/'><span className="ml-5">hi</span></Link></div>
+                   <SideMenuCategory name={"Projects"} childLinks={fluidSim}/>
+                   <SideMenuItem open={open} link='/posts/dinnerClub'>Dinner Club</SideMenuItem>
+                   <SideMenuItem open={open} link='/posts/animation'>Fun & Games</SideMenuItem>
+                   <SideMenuItem open={open} link='/posts/animation'>Resume</SideMenuItem>
                </div>
 
            </div>
            <div className={styles.hamburgerMenu + ' ' + hamburgerMenuClass}>
-               <div className={styles.hamburgerContainer + ' ' + extraBurgerClass} onClick={() => onClick()}>
+               <div className={styles.hamburgerContainer } onClick={() => onClick()}>
                    <Image
                        priority
                        src="/images/hamburgerMenu.png"

@@ -15,6 +15,16 @@ module.exports = {
       maxWidth: {
         '2/3': '66%',
       },
+      width: {
+        '4/5': '80%',
+      },
+      height: {
+        '4p': '4px',
+        '60per':'65vh'
+      },
+      width: {
+        '120per':'101vw'
+      },
     },
   },
   plugins: [],
