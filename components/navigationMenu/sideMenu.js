@@ -13,7 +13,7 @@ export default function SideMenu({open, onClick}) {
         <ChildMenuItem open={open} link='/posts/animation'>Fluid Simulation</ChildMenuItem>
     );
     const rayTracing = (
-        <ChildMenuItem open={open} link='/posts/animation'>Ray Tracing</ChildMenuItem>
+        <ChildMenuItem open={open} link='/posts/rayTracing'>Ray Tracing</ChildMenuItem>
     );
     return (
        <div className="flex">
