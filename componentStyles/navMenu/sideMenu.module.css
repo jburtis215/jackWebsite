@@ -9,7 +9,7 @@
 }
 
 .sideMenu {
-    z-index:111;
+    z-index:10;
     background-color: #bcc1d2;
     position: fixed;
     top: 4rem;
