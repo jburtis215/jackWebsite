@@ -21,10 +21,10 @@ export default function DinnerClub() {
             </div>
             <div className="overflow-hidden">
                 <div className="overflow-scroll h-900 justify-center content-center">
-                    <PictureWithCaption height={900} width={700} imageAddress={'tapas'} caption={"A Delicious Tapas Meal from Rachel C. included Sangria, tortilla, pastrami, etc etc and so much more"}/>
-                    <PictureWithCaption height={500} width={700} imageAddress={'sasha'} caption={"A Delicious Tapas Meal from Rachel C. included Sangria, tortilla, pastrami, etc etc"}/>
-                    <PictureWithCaption height={600} width={700} imageAddress={'food'} caption={"A Delicious Tapas Meal from Rachel C. included Sangria, tortilla, pastrami, etc etc"}/>
-                    <PictureWithCaption height={600} width={700} imageAddress={'dinner'} caption={"A Delicious Tapas Meal from Rachel C. included Sangria, tortilla, pastrami, etc etc"}/>
+                    <PictureWithCaption height={900} width={700} imageAddress={'tapas'} caption={"A Delicious Tapas Meal from Rachel C. included Patatas Bravas, Gambas Al Ajillo, Spanish Tortilla, and Sangria"}/>
+                    <PictureWithCaption height={500} width={700} imageAddress={'sasha'} caption={"From Julia's Kitchen came Mushroom Risotto, Kale Salad, and a perfectly paired Red"}/>
+                    <PictureWithCaption height={600} width={700} imageAddress={'food'} caption={"Zander contributed Spaghetti and Metaballs with stuffed Eggplant sprinkled with Pomegranate see"}/>
+                    <PictureWithCaption height={600} width={700} imageAddress={'dinner'} caption={"Joe cooked up an autumnal pumpkin squash gnocchi with sweet potatoes and salad"}/>
                 </div>
             </div>
         </div>
