@@ -21,7 +21,7 @@ export default function SideMenu({open, onClick}) {
                <div>
                    <SideMenuCategory name={"Projects"} childLinks={[fluidSim, rayTracing]}/>
                    <SideMenuItem open={open} link='/posts/dinnerClub'>Dinner Club</SideMenuItem>
-                   <SideMenuItem open={open} link='/posts/animation'>Fun & Games</SideMenuItem>
+                   <SideMenuItem open={open} link='/posts/particleTracing'>Fun & Games</SideMenuItem>
                    <SideMenuItem open={open} link='/posts/animation'>Resume</SideMenuItem>
                </div>
 
