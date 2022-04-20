@@ -614,7 +614,7 @@ VBObox0.prototype.myKeyPress = function (ev, partSys) {
             }
         case 'z':
             if (g_show3 == 1) {
-                fluidParticleBox.resetWind(partSys2);
+                //fluidParticleBox.resetWind(partSys2);
             }
         case 'v':
         case 'V':

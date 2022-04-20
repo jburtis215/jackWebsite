@@ -485,8 +485,8 @@ FluidVBObox.prototype.PartSys_render = function (myGL, partSys) {
 
 
 FluidVBObox.prototype.reset = function (partSys) {
-
     for (var i = 0; i < partSys.partCount; i++) {
+        const pOff = i * PART_MAXVAR;			// starting index of each particle
         partSys.s0[pOff + PART_XVEL] += (-0.5 + Math.random()) * .02;
         partSys.s0[pOff + PART_YVEL] += (-0.5 + Math.random()) * .02;
         partSys.s0[pOff + PART_ZVEL] += (-0.5 + Math.random()) * .02;
