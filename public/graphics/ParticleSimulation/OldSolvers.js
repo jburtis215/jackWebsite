@@ -479,36 +479,36 @@ VBObox0.prototype.myMouseUp = function (ev, gl, canvas) {
 VBObox0.prototype.myKeyDown = function (ev) {
 
 
-    if (ev.keyCode == 68)
+    if (ev.keyCode == 68)  // D
         ANGLE3_STEP = -60;
-    if (ev.keyCode == 65)
+    if (ev.keyCode == 65) // A
         ANGLE3_STEP = 60;
-    if (ev.keyCode == 87)
-        zStep = 1;
-    if (ev.keyCode == 83)
-        zStep = -1;
-    if (ev.keyCode == 73)
+    if (ev.keyCode == 87) // W
+        zStep = 10;
+    if (ev.keyCode == 83)  // S
+        zStep = -10;
+    if (ev.keyCode == 73) //I
         zMoveStep = 1;
-    if (ev.keyCode == 75)
+    if (ev.keyCode == 75)  //K
         zMoveStep = -1;
 
-    if (ev.keyCode == 38) {
+    if (ev.keyCode == 38) {  //up
         moveSpeed = .1;
         return;
     }
-    if (ev.keyCode == 40) {
+    if (ev.keyCode == 40) {  //Down
         moveSpeed = -.1;
         return;
     }
-    if (ev.keyCode == 37) {
+    if (ev.keyCode == 37) {  //Left
         moveSpeed2 = -.1;
         return;
     }
-    if (ev.keyCode == 39) {
+    if (ev.keyCode == 39) {  //Right
         moveSpeed2 = .1;
         return;
     }
-    if (ev.keyCode == 89) {
+    if (ev.keyCode == 89) { // Y
         springRun = 1;
     }
 }
@@ -610,43 +610,11 @@ VBObox0.prototype.myKeyPress = function (ev, partSys) {
                 break;
             }
             if (g_show3 == 1) {
-                part3Box.reset(partSys1);
-            }
-            if (g_show4 == 1) {
-                part4Box.reset(partSys1);
-                break;
-            }
-            if (g_show5 == 1) {
-                part5Box.reset(partSys1);
-                break;
-            }
-            if (g_show6 == 1) {
-                part6Box.reset(partSys1);
-                break;
-            }
-            if (g_show7 == 1) {
-                part7Box.reset(partSys1);
-                break;
+                fluidParticleBox.reset(partSys1);
             }
         case 'z':
             if (g_show3 == 1) {
-                part3Box.resetWind(partSys2);
-            }
-            if (g_show4 == 1) {
-                part4Box.resetWind(partSys2);
-                break;
-            }
-            if (g_show5 == 1) {
-                part5Box.resetWind(partSys2);
-                break;
-            }
-            if (g_show6 == 1) {
-                part6Box.resetWind(partSys2);
-                break;
-            }
-            if (g_show7 == 1) {
-                part7Box.resetWind(partSys2);
-                break;
+                fluidParticleBox.resetWind(partSys2);
             }
         case 'v':
         case 'V':

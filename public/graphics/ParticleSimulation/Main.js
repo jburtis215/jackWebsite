@@ -1,5 +1,51 @@
+//3456789_123456789_123456789_123456789_123456789_123456789_123456789_123456789_
+// (JT: why the numbers? counts columns, helps me keep 80-char-wide listings)
+//
 // ORIGINAL SOURCE:
 // RotatingTranslatedTriangle.js (c) 2012 matsuda
+// HIGHLY MODIFIED to make:
+//
+// JT_MultiShader.js  for EECS 351-1, 
+//									Northwestern Univ. Jack Tumblin
+
+/* Demonstrate use of two separate VBOs with different contents & attributes. 
+VERSION HISTORY:  (Originally named 'TwoVBOs.js'; version 01-10)
+
+JT_VBObox-Lib.js version  11:
+-------------------------------------------------------------------------------
+	Create a re-usable 'VBObox' object/class/prototype & library that holds all 
+	data and functions we need to more easily render the vertices in one Vertex 
+	Buffer Object (VBO) on-screen, including:
+	--All source code for all Vertex Shader(s) and Fragment shader(s) we may use 
+		to render the vertices stored in this VBO;
+	--all variables needed to select and access this object's VBO, shaders, 
+		uniforms, attributes, samplers, texture buffers, and any misc. items. 
+	--all variables that hold values (uniforms, vertex arrays, element arrays) we 
+	  will transfer to the GPU to enable it to render the vertices in our VBO.
+	--all user functions: init(), draw(), adjust(), reload(), empty(), restore().
+	Put all of it into 'JT_VBObox-Lib.js', a separate library file.
+	CONVERSION:
+	11a) --create a vboBox1 object named 'aShade' and, one-by-one, comment out 	
+		each existing vbo1-related VARIABLE and replace w/ 'aShade' member; test. 
+	11b) --comment out each vbo1-related FUNCTION call and function, and replace 
+	with 'aShade' members (all of initVBO1(), parts of draw(), etc) test;
+	11c) --remove old vbo1 comments, create vboBox2 object name 'bShade' and use 
+	all its members to replace existing vbo2-related VARIABLEs and FUNCTIONs. 
+		   --Move all the VBObox objects to the 'JT_VBObox-Lib.js' library.
+	11d) --Cleaned up comments for use in EECS 351-2 Particle systems: 
+	worldBox =='VBObox1' object that contains the 3D world's surfaces only.
+	partBox1 =='VBObox2' contains our 1st particle system, its state vars, etc.
+	partBox2 =='VBObox8' contains our 2nd particle system, its state vars, etc.
+	      ...
+==============================================================================*/
+// TABS set to 2.
+
+// Global Variables  
+//   (These are almost always a BAD IDEA, but here they eliminate lots of
+//    tedious function arguments. 
+//    Later, collect them into just a few global, well-organized objects!)
+// ============================================================================
+// for WebGL usage:--------------------
 const PART_XPOS = 0;  //  position
 const PART_YPOS = 1;
 const PART_ZPOS = 2;
@@ -32,9 +78,10 @@ const PART_PRESSURE = 27;
 const PART_VOX_X = 28;
 const PART_VOX_Y = 29;
 const PART_VOX_Z = 30;
+const PART_VOX_LIST = 31;
 
 
-const PART_MAXVAR = 31;  // Size of array in CPart uses to store its values.
+const PART_MAXVAR = 32;  // Size of array in CPart uses to store its values.
 
 const F_NONE = 0;       // Non-existent force: ignore this CForcer object
 const F_MOUSE = 1;       // Spring-like connection to the mouse cursor; lets
@@ -77,6 +124,7 @@ var g_currentAngle = 0;
 
 var k = 100;
 
+var voxelsPerAxis = 4
 var speedOfSound = 1000;
 
 var floatsPerVertex = 7;
@@ -89,19 +137,9 @@ gndVerts = new Float32Array(floatsPerVertex * (2 * (xcount + ycount) + 24));
 makeGroundGrid();
 // For multiple VBOs & Shaders:-----------------
 worldBox = new VBObox0();		  // Holds VBO & shaders for drawing world surfaces;
-part1Box = new VBObox1();		  // "  "  for drawing 1st particle system
-part2Box = new VBObox2();     // "  "  for drawing 2nd particle system
-part3Box = new VBObox10();
-part4Box = new VBObox9();
-part5Box = new VBObox5();
-part6Box = new VBObox6();
-part7Box = new VBObox7();
+fluidParticleBox = new FluidVBObox();
 
 partSys1 = new PartSys();
-partSys2 = new PartSys();
-partSys3 = new PartSys();
-partSys4 = new PartSys();
-partSys5 = new PartSys();
 
 var g_last = Date.now();				//  Timestamp: set after each frame of animation,
 // used by 'animate()' function to find how much
@@ -142,7 +180,7 @@ var g_bounce = 1;				// floor-bounce constraint type:
 
 var yvelNow = 0.0;
 var zvelNow = 0.0;
-var partCount = 100;
+var partCount = 1000;
 //var s0 = new Float32Array(partCount*PART_MAXVAR);
 
 //PartSys_init();
@@ -207,8 +245,6 @@ function main() {
     // Retrieve <canvas> element
     g_canvasID = document.getElementById('webgl');
 
-    console.log("made It")
-
     // Create the the WebGL rendering context: one giant JavaScript object that
     // contains the WebGL state machine adjusted by large sets of WebGL functions,
     // built-in variables & parameters, and member data. Every WebGL function call
@@ -218,12 +254,10 @@ function main() {
         console.log('Failed to get the rendering context for WebGL');
         return;
     }
-    //partSys1.BouncyS0();
+
     partSys1.ForceField();
-    partSys2.WindyS0();
-    partSys3.FireS0();
-    partSys4.BoidS0();
-    partSys5.SpringS0();
+
+
     // Register the Mouse & Keyboard Event-handlers-------------------------------
     // If users move, click or drag the mouse, or they press any keys on the
     // the operating system will sense them immediately as 'events'.
@@ -258,13 +292,7 @@ function main() {
     // Initialize each of our 'vboBox' objects:
     worldBox.init(gl);		// VBO + shaders + uniforms + attribs for our 3D world,
                               // including ground-plane,
-    part1Box.init(gl);		//  "		"		"  for 1st particle system in the 3D world
-    part2Box.init(gl);    //  "   "   "  for 2nd particle system in the 3D world
-    part3Box.init(gl);
-    part4Box.init(gl);
-    part5Box.init(gl);
-    part6Box.init(gl);
-    part7Box.init(gl);
+    fluidParticleBox.init(gl);
     gl.clearColor(0, 0, 0, 1);	  // RGBA color for clearing <canvas>
 
     // ==============ANIMATION=============
@@ -293,11 +321,6 @@ function main() {
         zCamPos = animateZPos(zCamPos);
         g_currentAngle = makeSpin(g_currentAngle);  // Update the rotation angle
         zlook = animatez(zlook);
-        if (g_show3 == 1) part3Box.resetSpring(partSys5);
-        if (g_show4 == 1) part4Box.resetSpring(partSys5);
-        if (g_show5 == 1) part5Box.resetSpring(partSys5);
-        if (g_show6 == 1) part6Box.resetSpring(partSys5);
-        if (g_show7 == 1) part7Box.resetSpring(partSys5);
 
         //    draw(gl, myVerts, currentAngle, modelMatrix, u_ModelMatrix);
         draw();	// compute new particle state at current time
@@ -329,19 +352,6 @@ function draw() {
         worldBox.draw(gl);			// draw our VBO's contents using our shaders.
     }
 
-    if (g_show1 == 1) { // IF user didn't press HTML button to 'hide' VBO1:
-        part1Box.adjust(gl);		// Send new values for uniforms to the GPU, and
-        part1Box.PartSys_render(gl);			// draw our VBO's contents using our shaders.
-    }
-
-//PartSys_render
-
-
-    if (g_show2 == 1) { // IF user didn't press HTML button to 'hide' VBO2:
-        part2Box.adjust(gl);		// Send new values for uniforms to the GPU, and
-        part2Box.draw(gl);			// draw our VBO's contents using our shaders.
-    }
-
     if (g_show3 == 1) {
 
         //	part3Box.adjust(gl);
@@ -355,140 +365,23 @@ function draw() {
       part3Box.PartSys_render(gl);
       */
         if (part1 == 1) {
-            part3Box.adjust1(gl, partSys1);
+            fluidParticleBox.adjust1(gl, partSys1);
         }
         if (part2 == 1) {
-            part3Box.adjust1(gl, partSys2);
+            fluidParticleBox.adjust1(gl, partSys2);
         }
         if (part3 == 1) {
-            part3Box.adjust1(gl, partSys3);
+            fluidParticleBox.adjust1(gl, partSys3);
         }
         if (part4 == 1) {
-            part3Box.adjust1(gl, partSys4);
+            fluidParticleBox.adjust1(gl, partSys4);
         }
         if (part5 == 1) {
-            part3Box.adjust1(gl, partSys5);
+            fluidParticleBox.adjust1(gl, partSys5);
         }
 
     }
 
-    if (g_show4 == 1) {
-
-        //	part3Box.adjust(gl);
-        //part3Box.PartSys_render(gl);
-        //}
-        /*
-        part3Box.applyForces(gl);
-      part3Box.dotFinder(gl);
-      part3Box.render(gl);
-      part3Box.PartSys_constrain();
-      part3Box.PartSys_render(gl);
-      */
-        if (part1 == 1) {
-            part4Box.adjust1(gl, partSys1);
-        }
-        if (part2 == 1) {
-            part4Box.adjust1(gl, partSys2);
-        }
-        if (part3 == 1) {
-            part4Box.adjust1(gl, partSys3);
-        }
-        if (part4 == 1) {
-            part4Box.adjust1(gl, partSys4);
-        }
-        if (part5 == 1) {
-            part4Box.adjust1(gl, partSys5);
-        }
-
-    }
-
-    if (g_show5 == 1) {
-
-        //	part3Box.adjust(gl);
-        //part3Box.PartSys_render(gl);
-        //}
-        /*
-        part3Box.applyForces(gl);
-      part3Box.dotFinder(gl);
-      part3Box.render(gl);
-      part3Box.PartSys_constrain();
-      part3Box.PartSys_render(gl);
-      */
-        if (part1 == 1) {
-            part5Box.adjust1(gl, partSys1);
-        }
-        if (part2 == 1) {
-            part5Box.adjust1(gl, partSys2);
-        }
-        if (part3 == 1) {
-            part5Box.adjust1(gl, partSys3);
-        }
-        if (part4 == 1) {
-            part5Box.adjust1(gl, partSys4);
-        }
-        if (part5 == 1) {
-            part5Box.adjust1(gl, partSys5);
-        }
-
-    }
-    if (g_show6 == 1) {
-
-        //	part3Box.adjust(gl);
-        //part3Box.PartSys_render(gl);
-        //}
-        /*
-        part3Box.applyForces(gl);
-      part3Box.dotFinder(gl);
-      part3Box.render(gl);
-      part3Box.PartSys_constrain();
-      part3Box.PartSys_render(gl);
-      */
-        if (part1 == 1) {
-            part6Box.adjust1(gl, partSys1);
-        }
-        if (part2 == 1) {
-            part6Box.adjust1(gl, partSys2);
-        }
-        if (part3 == 1) {
-            part6Box.adjust1(gl, partSys3);
-        }
-        if (part4 == 1) {
-            part6Box.adjust1(gl, partSys4);
-        }
-        if (part5 == 1) {
-            part6Box.adjust1(gl, partSys5);
-        }
-
-    }
-    if (g_show7 == 1) {
-
-        //	part3Box.adjust(gl);
-        //part3Box.PartSys_render(gl);
-        //}
-        /*
-        part3Box.applyForces(gl);
-      part3Box.dotFinder(gl);
-      part3Box.render(gl);
-      part3Box.PartSys_constrain();
-      part3Box.PartSys_render(gl);
-      */
-        if (part1 == 1) {
-            part7Box.adjust1(gl, partSys1);
-        }
-        if (part2 == 1) {
-            part7Box.adjust1(gl, partSys2);
-        }
-        if (part3 == 1) {
-            part7Box.adjust1(gl, partSys3);
-        }
-        if (part4 == 1) {
-            part7Box.adjust1(gl, partSys4);
-        }
-        if (part5 == 1) {
-            part7Box.adjust1(gl, partSys5);
-        }
-
-    }
 }
 
 function VBO0toggle() {
@@ -768,4 +661,10 @@ function roundRand3D() {
     while (xball * xball + yball * yball + zball * zball >= 1.0);	// keep 1st point inside sphere.
     ret = new Array(xball, yball, zball);
     return ret;
+}
+
+function getRandomInt(min, max) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min) + min); //The maximum is exclusive and the minimum is inclusive
 }
