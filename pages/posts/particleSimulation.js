@@ -63,6 +63,7 @@ export default class ParticleSimulation extends React.Component {
                                 priority
                                 src={'/images/start.png'}
                                 height={110}
+                                className="cursor-pointer"
                                 width={340}
                                 alt={"name"}
                                 />
