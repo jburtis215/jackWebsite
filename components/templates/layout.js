@@ -7,6 +7,11 @@ import { useState } from 'react';
 import SideMenu from "../navigationMenu/sideMenu";
 import Paragraph from "../mainPageComponents/paragraph";
 
+import {
+    Routes,
+    Route,
+} from "react-router-dom";
+
 const name = 'Hi,  I\'m Jack.'
 export const siteTitle = 'Jack Burtis'
 
@@ -50,11 +55,15 @@ export default function Layout({header, title, children, home }) {
                         />
                         <div className="text-center w-900 pl-10">
                             <h1 className={utilStyles.heading2XlHome}>{name}</h1>
-                            <Paragraph>I'm a software developer with a passion for computer graphics, animation, and film.  I'm currently working out of Seattle.</Paragraph>
-                            <Paragraph>
-                            I have experience in both coding Graphics software and creating 3D animation using software such as Maya.
-                            </Paragraph>
+                            <Paragraph>I'm a software developer with a passion for building products that thrill users, and a deep interest in computer graphics, animation, and film.</Paragraph>
+                            <Paragraph>I'm currently working out of Seattle.</Paragraph>
                             <Paragraph>Welcome to my website! I wrote it using Next.js/React frameworks. </Paragraph>
+                            <Paragraph>
+                                See the source code for this site at:
+                                <div>
+                                    <a target="_blank" href="https://github.com/jburtis215/jackWebsite" className="text-blue-500 underline">Jack's Github</a>
+                                </div>
+                                </Paragraph>
                         </div>
                     </>
                 ) : (
