@@ -203,10 +203,10 @@ var timeStep = 1.7/1000;			// current timestep (1/60th sec) in milliseconds
 MvpMat = new Matrix4();		// Transforms CVV axes to model axes.
 
 var xCamPos = .5;
-var yCamPos = .5;
+var yCamPos = -1.7;
 var zCamPos = 1.9;
 var currentAngle = 90;
-var zlook = -10;
+var zlook = -0.7;
 var moveSpeed = 0;
 var moveSpeed2 = 0;
 var zMoveStep = 0;

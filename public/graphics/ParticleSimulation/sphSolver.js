@@ -238,9 +238,6 @@ FluidVBObox.prototype.s0dotFinder = function (mygl, partSys) {
 
     for (var i = 0; i < partSys.partCount; i++) {
         var pOff = i * PART_MAXVAR;
-  //      console.log("s0s: ");
-    //    console.log("x: " + partSys.s0[pOff + PART_XPOS] + "\ny: " + partSys.s0[pOff + PART_YPOS] + "\nz: " +
-      //      partSys.s0[pOff + PART_ZPOS]);
         partSys.s0dot[pOff + PART_XPOS] = partSys.s0[pOff + PART_XVEL];		// 0.0 <= randomRound() < 1.0
         partSys.s0dot[pOff + PART_YPOS] = partSys.s0[pOff + PART_YVEL];
         partSys.s0dot[pOff + PART_ZPOS] = partSys.s0[pOff + PART_ZVEL];
@@ -266,12 +263,7 @@ FluidVBObox.prototype.s0dotFinder = function (mygl, partSys) {
         partSys.s0dot[pOff + PART_R_FTOT] = 0;  // force-accumulator for color-change: red
         partSys.s0dot[pOff + PART_G_FTOT] = 0;  // force-accumulator for color-change: grn
         partSys.s0dot[pOff + PART_B_FTOT] = 0;  // force-accumulator for color-change: blu
-
- //       console.log("Dots: ");
-   //     console.log("x: " + partSys.s0dot[pOff + PART_XPOS] + "\ny: " + partSys.s0dot[pOff + PART_YPOS] + "\nz: " +
-     //       partSys.s0dot[pOff + PART_ZPOS]);
     }
-
 }
 
 FluidVBObox.prototype.findFirstS1 = function (mygl, partSys) {
@@ -292,10 +284,6 @@ FluidVBObox.prototype.findFirstS1 = function (mygl, partSys) {
         partSys.s1[pOff + PART_B_VEL] = (partSys.s0dot[pOff + PART_B_VEL] * timeStep) + partSys.s0[pOff + PART_B_VEL];
         partSys.s1[pOff + PART_MASS] = (partSys.s0dot[pOff + PART_MASS] * timeStep) + partSys.s0[pOff + PART_MASS];
         partSys.s1[pOff + PART_AGE] = partSys.s0dot[pOff + PART_AGE] + partSys.s0[pOff + PART_AGE];
- //       console.log("first s1: ");
-   //     console.log("x: " + partSys.s1[pOff + PART_XPOS] + "\ny: " + partSys.s1[pOff + PART_YPOS] + "\nz: " +
-     //       partSys.s1[pOff + PART_ZPOS]);
-
     }
 }
 
@@ -345,9 +333,6 @@ FluidVBObox.prototype.s1DotFinder = function (mygl, partSys) {
         partSys.s1dot[pOff + PART_R_FTOT] = 0;  // force-accumulator for color-change: red
         partSys.s1dot[pOff + PART_G_FTOT] = 0;  // force-accumulator for color-change: grn
         partSys.s1dot[pOff + PART_B_FTOT] = 0;  // force-accumulator for color-change: blu
- //       console.log("1Dots: ");
-   //     console.log("x: " + partSys.s1dot[pOff + PART_XPOS] + "\ny: " + partSys.s1dot[pOff + PART_YPOS] + "\nz: " +
-     //       partSys.s1dot[pOff + PART_ZPOS]);
     }
 
 }
@@ -369,9 +354,6 @@ FluidVBObox.prototype.findBackS2 = function (mygl, partSys) {
         partSys.s2[pOff + PART_B_VEL] = -(partSys.s1dot[pOff + PART_B_VEL] * timeStep) + partSys.s1[pOff + PART_B_VEL];
         partSys.s2[pOff + PART_MASS] = -(partSys.s1dot[pOff + PART_MASS] * timeStep) + partSys.s1[pOff + PART_MASS];
         partSys.s2[pOff + PART_AGE] = -partSys.s1dot[pOff + PART_AGE] + partSys.s1[pOff + PART_AGE];
-     //   console.log("s2: ");
-       // console.log("x: " + partSys.s2[pOff + PART_XPOS] + "\ny: " + partSys.s2[pOff + PART_YPOS] + "\nz: " +
-         //   partSys.s2[pOff + PART_ZPOS]);
     }
 }
 
@@ -397,11 +379,6 @@ FluidVBObox.prototype.render = function (mygl, partSys) {
         partSys.s1[pOff + PART_VOX_X] = Math.max(Math.floor(partSys.s1[pOff + PART_XPOS] / (h * 2)), 0);
         partSys.s1[pOff + PART_VOX_Y] = Math.max(Math.floor(partSys.s1[pOff + PART_YPOS] / (h * 2)), 0);
         partSys.s1[pOff + PART_VOX_Z] = Math.max(Math.floor(partSys.s1[pOff + PART_ZPOS] / (h * 2)), 0);
-  //      console.log("1s: ");
-    //    console.log("x: " + (partSys.s0[pOff + PART_XPOS] - partSys.s2[pOff + PART_XPOS]) + "\ny: " +
-      //      (partSys.s0[pOff + PART_YPOS] - partSys.s2[pOff + PART_YPOS]) + "\nz: " +
-        //    (partSys.s0[pOff + PART_ZPOS] - partSys.s2[pOff + PART_ZPOS]));
-
     }
 }
 
@@ -411,8 +388,6 @@ FluidVBObox.prototype.PartSys_constrain1 = function (partSys) {
         var pOff = i * PART_MAXVAR;
         partSys.c0[0](i, partSys.s1, partSys.s0);
         partSys.c0[1](pOff, partSys.s1);
-    //    console.log("s1's: \n x:" + partSys.s1[pOff + PART_XPOS] + "\ny: " + partSys.s1[pOff + PART_YPOS]
-      //      + "\n z:" + partSys.s1[pOff + PART_ZPOS])
     }
 }
 

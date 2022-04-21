@@ -47,11 +47,12 @@ export default class ParticleTracing extends React.Component {
         const canvas = (<canvas id="webgl" width="600" height="600" className={"float-left " + (this.state.initiated ? "" : "bg-light-green")} onClick={this.onClickHelper}>
             Please use a browser that supports "canvas"
         </canvas>);
-        const alt = (<div className="h-1/2 w-1/2" onClick={this.onClickHelper}>Hello</div>)
+        const alt = (<div className="h-600 w-600" onClick={this.onClickHelper}>Hello</div>)
+        const display = this.state.initiated ? canvas : alt;
         return (
                 <Layout header={"Fluid Particle Simulation Game"} title={"Fluid Particle Simulation Game"}>
                     Click on the Green Square to begin the game!
-                    {canvas}
+                    { alt }
                     <div>
                         Instructions:
                         <div>
