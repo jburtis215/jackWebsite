@@ -1,7 +1,9 @@
 import Layout from '../../components/templates/layout'
 import React from "react";
-import {useState} from "react";
-export default class ParticleTracing extends React.Component {
+import Image from "next/image";
+import utilStyles from "../../styles/utils.module.css";
+
+export default class ParticleSimulation extends React.Component {
 
     constructor(props) {
         super(props);
@@ -10,6 +12,7 @@ export default class ParticleTracing extends React.Component {
             initiated: false
         };
         this.onClickHelper = this.onClickHelper.bind(this);
+        this.onFirstClick = this.onFirstClick.bind(this)
 
     }
     componentDidMount () {
@@ -31,6 +34,10 @@ export default class ParticleTracing extends React.Component {
         }})
     }
 
+    onFirstClick () {
+        this.setState({initiated: true})
+    }
+
     onClickHelper () {
         console.log("You clicked")
         this.setState({initiated: true})
@@ -44,19 +51,34 @@ export default class ParticleTracing extends React.Component {
         return script;
     }
     render() {
-        const canvas = (<canvas id="webgl" width="600" height="600" className={"float-left " + (this.state.initiated ? "" : "bg-light-green")} onClick={this.onClickHelper}>
+        const canvas = (<canvas id="webgl" width="600" height="600" className={"float-left"} onClick={this.onClickHelper}>
             Please use a browser that supports "canvas"
         </canvas>);
-        const alt = (<div className="h-600 w-600" onClick={this.onClickHelper}>Hello</div>)
-        const display = this.state.initiated ? canvas : alt;
         return (
                 <Layout header={"Fluid Particle Simulation Game"} title={"Fluid Particle Simulation Game"}>
-                    Click on the Green Square to begin the game!
                     { canvas }
+                    <div className={"flex justify-center align-middle absolute h-600 w-600 bg-blue-gray" + (this.state.initiated ? " hidden" : "")} onClick={this.onClickHelper}>
+                        <div className="h-110 w-340 my-auto">
+                            <Image
+                                priority
+                                src={'/images/start.png'}
+                                height={110}
+                                width={340}
+                                alt={"name"}
+                                />
+                        </div>
+                    </div>
                     <div>
-                        Instructions:
-                        <div>
-                            Press 'r' to launch the particles into motion.<br/>Use W/S/A/D to change the view. <br/> Use the arrow buttons to move forward and backward <br/> Use I and K to move up and down
+                        <div className="mx-auto text-center w-2/3">
+                            <span className="mx-auto text-center w-2/3 my-5 font-extrabold text-2xl">Press Start to begin!</span>
+                        <br/>
+                            <br/>
+                            Press '<span className="font-extrabold">r</span>' to launch the particles into motion.
+                            <br/>
+                            Use <span className="font-extrabold">w/a/s/d</span> to change the view.
+                            <br/>
+                            Use the <span className="font-extrabold">arrows</span> buttons to move forward and backward
+                            <br/> Use '<span className="font-extrabold">i</span>' and '<span className="font-extrabold">k</span>' to move up and down
                         </div>
                     </div>
                 </Layout>

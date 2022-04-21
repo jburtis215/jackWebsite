@@ -75,7 +75,7 @@
 }
 
 .hideCaption {
-    opacity: 5%;
+    opacity: 0%;
 }
 
 .showCaptionBackground {
@@ -84,6 +84,7 @@
 
 .captionContainer {
     transition: opacity .5s;
+    width: 700px;
 }
 
 .dinnerPicDivHover {

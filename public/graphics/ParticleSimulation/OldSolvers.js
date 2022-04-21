@@ -405,8 +405,6 @@ VBObox0.prototype.myMouseDown = function (ev, gl, canvas) {
     yMclik = y;
     if (x < 0) ANGLE3_STEP = 45;
     else ANGLE3_STEP = -45;
-    document.getElementById('MouseResult1').innerHTML =
-        'myMouseDown() at CVV coords x,y = ' + x + ', ' + y + '<br>';
 };
 
 
@@ -470,9 +468,6 @@ VBObox0.prototype.myMouseUp = function (ev, gl, canvas) {
     xMdragTot += (x - xMclik);
     yMdragTot += (y - yMclik);
     console.log('myMouseUp: xMdragTot,yMdragTot =', xMdragTot, ',\t', yMdragTot);
-    // Put it on our webpage too...
-    document.getElementById('MouseResult1').innerHTML =
-        'myMouseUp(       ) at CVV coords x,y = ' + x + ', ' + y + '<br>';
 };
 
 

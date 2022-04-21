@@ -12,7 +12,7 @@ export default function DinnerClub() {
                 </p>
                 <br/>
                 <p>
-                    I'd assign friends and friends-of-friends into random tables, and each diner would have to take one turn cooking a meal for the rest of the table.
+                    I assigned friends and friends-of-friends into random tables, and each diner would cook a meal for the rest of the table.
                 </p>
                 <br/>
                 <p>

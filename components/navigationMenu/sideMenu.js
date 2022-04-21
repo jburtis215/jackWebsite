@@ -15,13 +15,16 @@ export default function SideMenu({open, onClick}) {
     const rayTracing = (
         <ChildMenuItem open={open} link='/posts/rayTracing'>Ray Tracing</ChildMenuItem>
     );
+    const particleSimulation = (
+        <ChildMenuItem open={open} link='/posts/particleSimulation'>Particle Simulation</ChildMenuItem>
+    );
     return (
        <div className="flex">
            <div className={styles.sideMenu + ' ' + extraMenuClass}>
                <div>
                    <SideMenuCategory name={"Projects"} childLinks={[fluidSim, rayTracing]}/>
+                   <SideMenuCategory name={"Interactive!"} childLinks={particleSimulation}/>
                    <SideMenuItem open={open} link='/posts/dinnerClub'>Dinner Club</SideMenuItem>
-                   <SideMenuItem open={open} link='/posts/particleTracing'>Fun & Games</SideMenuItem>
                    <SideMenuItem open={open} link='/posts/animation'>Resume</SideMenuItem>
                </div>
 
