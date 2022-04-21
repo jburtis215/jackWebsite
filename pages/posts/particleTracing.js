@@ -52,7 +52,7 @@ export default class ParticleTracing extends React.Component {
         return (
                 <Layout header={"Fluid Particle Simulation Game"} title={"Fluid Particle Simulation Game"}>
                     Click on the Green Square to begin the game!
-                    { alt }
+                    { canvas }
                     <div>
                         Instructions:
                         <div>
