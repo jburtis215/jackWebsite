@@ -3,9 +3,9 @@ import React from "react";
 
 export default function NavContainer() {
         return (
-            <div className="pl-5 h-16 bg-gray-700 py-5 sticky top-0 z-50">
+            <div className="pr-5 h-16 py-5 top-0 a z-50">
                 <Link href={"/"}>
-                <div className="cursor-pointer float-left font-sans text-2xl text-gray-100">Jack Burtis</div>
+                <div className="cursor-pointer float-right font-sans text-2xl text-gray-900">Jack Burtis</div>
                 </Link>
             </div>
     )

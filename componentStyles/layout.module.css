@@ -17,7 +17,7 @@
 
 .header {
     display: flex;
-    justify-content: center;
+    justify-content: space-evenly;
     margin-top: 5rem;
 }
 
@@ -28,6 +28,7 @@
     animation-fill-mode: forwards;
     animation: fadeIn ease 2s;
     animation-delay: 1s;
+    width: 500px;
     -webkit-animation: fadeIn ease 2s;
     -webkit-animation-delay: 1s;
     -webkit-animation-fill-mode: forwards;

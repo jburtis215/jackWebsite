@@ -1,4 +1,4 @@
-import YoutubeEmbed from "../../components/Gimmicks/VideoEmbed";
+import YoutubeEmbed from "../Utils/VideoEmbed";
 export default function VideoSamplePage({children, title, embedCode}) {
     return (
         <div className="max-w-1000 mx-auto">

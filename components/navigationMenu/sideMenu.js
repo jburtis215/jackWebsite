@@ -19,11 +19,11 @@ export default function SideMenu({open, onClick}) {
         <ChildMenuItem open={open} link='/posts/particleSimulation'>Particle Simulation</ChildMenuItem>
     );
     return (
-       <div className="flex">
+       <div className="flex sticky top-0">
            <div className={styles.sideMenu + ' ' + extraMenuClass}>
                <div>
                    <SideMenuCategory name={"Projects"} childLinks={[fluidSim, rayTracing]}/>
-                   <SideMenuCategory name={"Interactive!"} childLinks={particleSimulation}/>
+                   <SideMenuCategory name={"Interactive"} childLinks={particleSimulation}/>
                    <SideMenuItem open={open} link='/posts/dinnerClub'>Dinner Club</SideMenuItem>
                </div>
 

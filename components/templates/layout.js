@@ -7,11 +7,6 @@ import { useState } from 'react';
 import SideMenu from "../navigationMenu/sideMenu";
 import Paragraph from "../mainPageComponents/paragraph";
 
-import {
-    Routes,
-    Route,
-} from "react-router-dom";
-
 const name = 'Hi,  I\'m Jack.'
 export const siteTitle = 'Jack Burtis'
 
@@ -39,8 +34,10 @@ export default function Layout({header, title, children, home }) {
             <meta name="og:title" content={siteTitle} />
             <meta name="twitter:card" content="summary_large_image" />
         </Head>
-        <NavContainer> </NavContainer>
+        <div className="flex justify-between">
             <SideMenu open={menuOpen} onClick={() => changeMenu()}> </SideMenu>
+            <NavContainer> </NavContainer>
+        </div>
         <div className={styles.container + ' ' + (menuOpen ? styles.openContainer : '')}>
             <header className={styles.header}>
                 {home ? (
@@ -49,11 +46,11 @@ export default function Layout({header, title, children, home }) {
                             priority
                             src="/images/canoePic.jpeg"
                             className={utilStyles.profPic}
-                            height={675}
-                            width={525}
+                            height={400}
+                            width={415}
                             alt={name}
                         />
-                        <div className="text-center w-900 pl-10">
+                        <div className="pl-10">
                             <h1 className={utilStyles.heading2XlHome}>{name}</h1>
                             <Paragraph>I'm a software developer with a passion for building products that thrill users, and a deep interest in computer graphics, animation, and film.</Paragraph>
                             <Paragraph>I'm currently working out of Seattle.</Paragraph>
@@ -63,7 +60,7 @@ export default function Layout({header, title, children, home }) {
                                 <div>
                                     <a target="_blank" href="https://github.com/jburtis215/jackWebsite" className="text-blue-500 underline">Jack's Github</a>
                                 </div>
-                                </Paragraph>
+                            </Paragraph>
                         </div>
                     </>
                 ) : (
@@ -76,6 +73,10 @@ export default function Layout({header, title, children, home }) {
             </header>
             <main className={styles.bodyContent}>{children}</main>
         </div>
+            <div className="flex justify-center">
+                <div className={"text-center rounded-full w-20 h-5 " + utilStyles.linkedIn}><a target="_blank" href="https://github.com/jburtis215/jackWebsite">LinkedIn</a>
+                </div>
+            </div>
     </>
     )
 }

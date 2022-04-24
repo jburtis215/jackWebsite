@@ -1,7 +1,6 @@
 import Layout from '../../components/templates/layout'
 import React from "react";
 import Image from "next/image";
-import utilStyles from "../../styles/utils.module.css";
 
 export default class ParticleSimulation extends React.Component {
 
@@ -55,7 +54,7 @@ export default class ParticleSimulation extends React.Component {
             Please use a browser that supports "canvas"
         </canvas>);
         return (
-                <Layout header={"Fluid Particle Simulation Game"} title={"Fluid Particle Simulation Game"}>
+                <Layout header={"Fluid Particle Simulation"} title={"Fluid Particle Simulation"}>
                     { canvas }
                     <div className={"flex justify-center align-middle absolute h-600 w-600 bg-blue-gray" + (this.state.initiated ? " hidden" : "")} onClick={this.onClickHelper}>
                         <div className="h-110 w-340 my-auto">
