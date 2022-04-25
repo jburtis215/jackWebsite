@@ -7,7 +7,7 @@ import { useState } from 'react';
 import SideMenu from "../navigationMenu/sideMenu";
 import Paragraph from "../mainPageComponents/paragraph";
 
-const name = 'Hi,  I\'m Jack.'
+const name = 'Jack Burtis'
 export const siteTitle = 'Jack Burtis'
 
 export default function Layout({header, title, children, home }) {
@@ -41,28 +41,22 @@ export default function Layout({header, title, children, home }) {
         <div className={styles.container + ' ' + (menuOpen ? styles.openContainer : '')}>
             <header className={styles.header}>
                 {home ? (
-                    <>
+                    <div className="flex justify-center">
+                        <div className={utilStyles.profPicContainer}>
                         <Image
                             priority
                             src="/images/canoePic.jpeg"
                             className={utilStyles.profPic}
-                            height={400}
-                            width={415}
+                            height={250}
+                            width={250}
                             alt={name}
                         />
-                        <div className="pl-10">
-                            <h1 className={utilStyles.heading2XlHome}>{name}</h1>
-                            <Paragraph>I'm a software developer with a passion for building products that thrill users, and a deep interest in computer graphics, animation, and film.</Paragraph>
-                            <Paragraph>I'm currently working out of Seattle.</Paragraph>
-                            <Paragraph>Welcome to my website! I wrote it using Next.js/React frameworks. </Paragraph>
-                            <Paragraph>
-                                See the source code for this site at:
-                                <div>
-                                    <a target="_blank" href="https://github.com/jburtis215/jackWebsite" className="text-blue-500 underline">Jack's Github</a>
-                                </div>
-                            </Paragraph>
                         </div>
-                    </>
+                        <div className={ utilStyles.infoContainer}>
+                            <h1 className={utilStyles.heading2XlHome}>{name}</h1>
+                            <Paragraph>Welcome to my website! I wrote it using Next.js/React frameworks. </Paragraph>
+                        </div>
+                    </div>
                 ) : (
                     <>
                     <h1 className={utilStyles.heading2Xl}>
@@ -71,12 +65,18 @@ export default function Layout({header, title, children, home }) {
                     </>
                 )}
             </header>
-            <main className={styles.bodyContent}>{children}</main>
-        </div>
-            <div className="flex justify-center">
-                <div className={"text-center rounded-full w-20 h-5 " + utilStyles.linkedIn}><a target="_blank" href="https://github.com/jburtis215/jackWebsite">LinkedIn</a>
+
+            <br/>
+            <hr className="h-2 bg-gray-300 mr-10"/>
+            <main className={styles.bodyContent}>
+                {children}
+
+                <div className="flex justify-center mt-14">
+                    <div className={"text-center rounded-full w-20 h-5 mb-10 " + utilStyles.linkedIn}><a target="_blank" href="https://github.com/jburtis215/jackWebsite">LinkedIn</a>
+                    </div>
                 </div>
-            </div>
+            </main>
+        </div>
     </>
     )
 }

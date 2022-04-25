@@ -4,7 +4,6 @@
     line-height: 1.2;
     font-weight: 800;
     letter-spacing: -0.05rem;
-    margin: 1rem 0;
     animation: fadeIn ease 2s;
     animation-delay: .5s;
     animation-fill-mode: forwards;
@@ -49,8 +48,13 @@
     line-height: 1.5;
 }
 
+.profPicContainer {
+    padding-right: 50px;
+    width: 250px;
+}
+
 .profPic {
-    border-radius: 15000px;
+    border-radius: 100px;
     animation: fadeIn ease 2s;
     z-index:0;
     -webkit-animation: fadeIn ease 2s;
@@ -59,10 +63,43 @@
     -ms-animation: fadeIn ease 2s;
 }
 
+.displayMenuPics {
+}
+
+.displayMenuPicsContainer {
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.displayMenuPicsTotal {
+    opacity: 0;
+    animation: fadeIn ease 2s;
+    animation-delay: 2s;
+    animation-fill-mode: forwards;
+    -webkit-animation: fadeIn ease 2s;
+    -webkit-animation-delay: 2s;
+    -webkit-animation-fill-mode: forwards;
+    -moz-animation: fadeIn ease 2s;
+    -moz-animation-delay: 2s;
+    -moz-animation-fill-mode: forwards;
+    -o-animation: fadeIn ease 2s;
+    -o-animation-delay: 2s;
+    -o-animation-fill-mode: forwards;
+    -ms-animation: fadeIn ease 2s;
+    -ms-animation-delay: 2s;
+    -ms-animation-fill-mode: forwards;
+}
+
+.infoContainer {
+    margin-top: auto;
+    margin-bottom: auto;
+    width: 350px;
+    text-align: center;
+}
+
 .dinnerPic {
     margin-right: auto;
     margin-left: auto;
-    border-radius: 15px;
     margin-bottom: 180px;
 }
 
@@ -71,20 +108,23 @@
     margin-top: 35px;
     display: flex;
     justify-content: center;
-    margin-bottom: 180px;
+    margin-bottom: 10px;
 }
 
 .hideCaption {
-    opacity: 0%;
+    opacity: 0;
+}
+
+.showCaption {
+    text-align: center;
 }
 
 .showCaptionBackground {
-    opacity: 75%;
+    opacity: 65%;
 }
 
 .captionContainer {
     transition: opacity .5s;
-    width: 700px;
 }
 
 .dinnerPicDivHover {
