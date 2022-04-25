@@ -54,6 +54,8 @@
 }
 
 .profPic {
+    margin-top: auto;
+    margin-bottom: auto;
     border-radius: 100px;
     animation: fadeIn ease 2s;
     z-index:0;
@@ -95,6 +97,23 @@
     margin-bottom: auto;
     width: 350px;
     text-align: center;
+}
+
+.aboutMePro {
+    width: 700px;
+}
+
+.aboutMeFun {
+    width: 550px;
+    margin-left: auto;
+    margin-top: 25px;
+    margin-right: auto;
+}
+
+.fillImg {
+    flex-shrink: 0;
+    min-width: 100%;
+    min-height: 100%
 }
 
 .dinnerPic {

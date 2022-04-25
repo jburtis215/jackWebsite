@@ -10,7 +10,7 @@ export default function SideMenu({open, onClick}) {
     const hamburgerMenuClass = open ? styles.hamburgerMenuOpen: styles.hamburgerMenuClose;
 
     const fluidSim = (
-        <ChildMenuItem open={open} link='/posts/animation'>Fluid Simulation</ChildMenuItem>
+        <ChildMenuItem open={open} link='/posts/particleSimulation'>Fluid Simulation</ChildMenuItem>
     );
     const rayTracing = (
         <ChildMenuItem open={open} link='/posts/rayTracing'>Ray Tracing</ChildMenuItem>
@@ -23,7 +23,7 @@ export default function SideMenu({open, onClick}) {
            <div className={styles.sideMenu + ' ' + extraMenuClass}>
                <div>
                    <SideMenuCategory name={"Projects"} childLinks={[fluidSim, rayTracing]}/>
-                   <SideMenuCategory name={"Interactive"} childLinks={particleSimulation}/>
+                   <SideMenuItem open={open} link='/posts/aboutMe'>About Me</SideMenuItem>
                    <SideMenuItem open={open} link='/posts/dinnerClub'>Dinner Club</SideMenuItem>
                </div>
 

@@ -7,7 +7,7 @@ export default function Animation() {
     const embed = "2FObbKgvrtw"
     return (
 
-        <Layout header={"Smooth Particle Hydrodynamics"} title={"Smooth Particle Hydrodynamics"}>
+        <Layout header={"Smooth Particle Hydrodynamics"} title={"Smooth Particle Hydrodynamics"} showBar={true}>
             <VideoSamplePage title={animation} embedCode={embed} >
                 <div className="justify-center content-center">
                     <h1 className="text-xl font-extrabold text-center">I created a JavaScript/WebGL Smoothed Particle Hydrodynamics (SPH) simulation of the physical behavior of fluid particles</h1>

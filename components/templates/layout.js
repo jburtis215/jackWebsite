@@ -10,7 +10,7 @@ import Paragraph from "../mainPageComponents/paragraph";
 const name = 'Jack Burtis'
 export const siteTitle = 'Jack Burtis'
 
-export default function Layout({header, title, children, home }) {
+export default function Layout({header, title, children, showBar, home }) {
     const [menuOpen, setMenuOpen] = useState(false)
     function changeMenu() {
         setMenuOpen(!menuOpen);
@@ -67,7 +67,7 @@ export default function Layout({header, title, children, home }) {
             </header>
 
             <br/>
-            <hr className="h-2 bg-gray-300 mr-10"/>
+            {showBar ? (<hr className="h-2 bg-gray-300 mr-10 "/>) : (<></>)}
             <main className={styles.bodyContent}>
                 {children}
 

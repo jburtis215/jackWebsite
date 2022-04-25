@@ -4,17 +4,17 @@ import PictureWithCaption from "../../components/mainPageComponents/pictureWIthC
 export default function DinnerClub() {
 
     return (
-    <Layout header={"Seattle Dinner Club"} title={"SDC"}>
+    <Layout header={"Seattle Dinner Club"} title={"SDC"} showBar={true}>
         <div className={"z-0"}>
             <div className="sticky mx-auto text-center font-normal text-lg mb-14 w-1/3">
                 <p>
                     I started a dinner club in Seattle!
                 </p>
-                <hr className="bg-gray-500 h-1 my-4"/>
+                <br/>
                 <p>
                     Friends and friends-of-friends were put into random tables, and each diner would cook a meal for the rest of the table.
                 </p>
-                <hr className="bg-gray-500 h-1 my-4"/>
+                <br/>
                 <p>
                     Hover over the pictures below to get some culinary inspiration!
                 </p>
