@@ -9,8 +9,8 @@ export default function RayTracing() {
 
         <Layout header={"Ray Tracing"} title={"Ray Tracing"} showBar={true}>
             <VideoSamplePage title={animation} embedCode={embed} >
-                <div className="justify-center content-center">
-                    <h1 className="text-xl font-extrabold text-center">I created an interactive JavaScript/WebGL Ray-Tracing Graphics program for producing high fidelity images 3D animation frames
+                <div className="justify-center content-center w-400 my-auto">
+                    <h1 className="text-xl font-extrabold text-center">I created an interactive JavaScript/WebGL Ray-Tracing Graphics program for producing high fidelity 3D animation frames
                     </h1>
                     <br/><br/>
                     <div className="max-w-2/3 mx-auto">

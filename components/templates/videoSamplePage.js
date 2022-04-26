@@ -1,9 +1,9 @@
 import YoutubeEmbed from "../Utils/VideoEmbed";
 export default function VideoSamplePage({children, title, embedCode}) {
     return (
-        <div className="max-w-1000 mx-auto">
+        <div className="mx-auto flex justify-center">
             <YoutubeEmbed embedId={embedCode}/>
-            <div className="max-w-2/3 mx-auto">{children}</div>
+            <div className="ml-10 w-[600px] my-auto">{children}</div>
         </div>
     )
 }

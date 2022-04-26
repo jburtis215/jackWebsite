@@ -12,28 +12,30 @@ export default function Home() {
                 <title>{siteTitle}</title>
             </Head>
             <div className={" mt-5 " + utilStyles.displayMenuPicsTotal}>
-                <div className={"mt-24 cursor-pointer " + utilStyles.displayMenuPicsContainer}>
-                    <Link href={"/posts/particleSimulation"}>
-                        <PictureWithCaption height={500} width={875} heightVar={"h-500"} widthVar={"w-[875px]"} imageAddress={'particleStill.png'} caption={"Fluid Particle Simulation"}/>
-                    </Link>
-                </div>
-                <div className={"mt-24 cursor-pointer " + utilStyles.displayMenuPicsContainer}>
-                    <Link href={"/posts/rayTracing"}>
-                        <PictureWithCaption height={500} width={875} heightVar={"h-500"} widthVar={"w-[875px]"} imageAddress={'RayTracingStill.png'} caption={"Ray Tracing"}/>
-                    </Link>
-                </div>
+                <Link href={"/posts/particleSimulation"}>
+                    <div className={"mt-24 cursor-pointer " + utilStyles.displayMenuPicsContainer}>
+                            <PictureWithCaption height={500} width={875} heightVar={"h-500"} widthVar={"w-[875px]"} imageAddress={'particleStill.png'} caption={"Fluid Particle Simulation"}/>
+                    </div>
+                </Link>
+                <Link href={"/posts/rayTracing"}>
+                    <div className={"mt-24 cursor-pointer " + utilStyles.displayMenuPicsContainer}>
+                            <PictureWithCaption height={500} width={875} heightVar={"h-500"} widthVar={"w-[875px]"} imageAddress={'RayTracingStill.png'} caption={"Ray Tracing"}/>
+                    </div>
+                </Link>
+
             </div>
             <div className={" " + utilStyles.displayMenuPicsTotal}>
-                <div className={"mt-24 cursor-pointer " + utilStyles.displayMenuPicsContainer}>
-                    <Link href={"/posts/dinnerClub"}>
-                        <PictureWithCaption height={500} width={875} heightVar={"h-500"} widthVar={"w-[875px]"} imageAddress={'pasta.jpeg'} caption={"Seattle Dinner Club"}/>
-                    </Link>
-                </div>
-                <div className={"mt-24 cursor-pointer " + utilStyles.displayMenuPicsContainer}>
-                    <Link  href={"/posts/aboutMe"}>
-                        <PictureWithCaption height={500} width={875} heightVar={"h-500"} widthVar={"w-[875px]"} imageAddress={'boat.jpeg'} caption={"About Me"}/>
-                    </Link>
-                </div>
+                <Link href={"/posts/dinnerClub"}>
+                    <div className={"mt-24 cursor-pointer " + utilStyles.displayMenuPicsContainer}>
+                            <PictureWithCaption height={500} width={875} heightVar={"h-500"} widthVar={"w-[875px]"} imageAddress={'pasta.jpeg'} caption={"Seattle Dinner Club"}/>
+                    </div>
+                </Link>
+                <Link  href={"/posts/aboutMe"}>
+                    <div className={"mt-24 cursor-pointer " + utilStyles.displayMenuPicsContainer}>
+                            <PictureWithCaption height={500} width={875} heightVar={"h-500"} widthVar={"w-[875px]"} imageAddress={'boat.jpeg'} caption={"About Me"}/>
+                    </div>
+                </Link>
+
             </div>
             <section className={utilStyles.headingMd}>
             </section>
