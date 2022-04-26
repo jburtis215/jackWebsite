@@ -20,7 +20,7 @@ export default function DinnerClub() {
                 </p>
             </div>
             <div className="overflow-hidden">
-                <div className="overflow-scroll justify-center content-center">
+                <div className="overflow-scroll h-900 justify-center content-center">
                     <div className="flex justify-center pb-20 h-700">
                         <PictureWithCaption height={400} width={700} heightVar={"h-400"} widthVar={"w-700"}imageAddress={'pasta.jpeg'} caption={"Molly chef-ed up vegan mac-and-cheese with bread crumbs and green onions"}/>
                         <PictureWithCaption height={500} width={700} heightVar={"h-500"} widthVar={"w-700"} imageAddress={'sasha.jpg'} caption={"From Julia's Kitchen came Mushroom Risotto, Kale Salad, and a perfectly paired Red wine"}/>
