@@ -31,7 +31,7 @@
 .hamburgerContainer {
     margin-right: 5px;
     margin-left: auto;
-    width: 50px;
+    width: 80px;
     transition:  margin-left 1s, margin-right 1s;
 }
 
@@ -39,9 +39,11 @@
     position: fixed;
     opacity: 100%;
     height:100%;
-    width:60px;
+    width:200px;
     transition: left 1s;
+    top: 20px;
 }
+
 .hamburgerMenuClose {
     left: 15px;
 }
@@ -50,6 +52,21 @@
     left: 210px;
 }
 
+
+.homeContainer {
+    margin-right: 5px;
+    margin-left: auto;
+    width: 80px;
+    transition:  margin-left 1s, margin-right 1s;
+}
+
+.homeContainerClose {
+    left: 95px;
+}
+
+.homeContainerOpen {
+    left: 290px;
+}
 
 .topCategory {
     font-weight: bolder;

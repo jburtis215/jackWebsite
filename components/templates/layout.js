@@ -48,7 +48,7 @@ export default function Layout({header, title, children, showBar, home }) {
                             src="/images/canoePic.jpeg"
                             className={utilStyles.profPic}
                             height={250}
-                            width={250}
+                            width={230}
                             alt={name}
                         />
                         </div>

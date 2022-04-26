@@ -11,28 +11,28 @@ export default function Home() {
             <Head>
                 <title>{siteTitle}</title>
             </Head>
-            <div className={"flex justify-evenly mt-5 " + utilStyles.displayMenuPicsTotal}>
+            <div className={" mt-5 " + utilStyles.displayMenuPicsTotal}>
 
                 <Link href={"/posts/particleSimulation"}>
                     <div className={"cursor-pointer " + utilStyles.displayMenuPicsContainer}>
-                        <PictureWithCaption height={400} width={700} heightVar={"h-400"} widthVar={"w-700"} imageAddress={'particleStill.png'} caption={"Fluid Particle Simulation"}/>
+                        <PictureWithCaption height={500} width={875} heightVar={"h-500"} widthVar={"w-[875px]"} imageAddress={'particleStill.png'} caption={"Fluid Particle Simulation"}/>
                     </div>
                 </Link>
                 <Link href={"/posts/rayTracing"}>
                     <div className={"cursor-pointer " + utilStyles.displayMenuPicsContainer}>
-                        <PictureWithCaption height={400} width={700} heightVar={"h-400"} widthVar={"w-700"} imageAddress={'rayTracingStill.png'} caption={"Ray Tracing"}/>
+                        <PictureWithCaption height={500} width={875} heightVar={"h-500"} widthVar={"w-[875px]"} imageAddress={'rayTracingStill.png'} caption={"Ray Tracing"}/>
                     </div>
                 </Link>
             </div>
-            <div className={"flex justify-evenly " + utilStyles.displayMenuPicsTotal}>
+            <div className={" " + utilStyles.displayMenuPicsTotal}>
                 <Link href={"/posts/dinnerClub"}>
                     <div className={"cursor-pointer " + utilStyles.displayMenuPicsContainer}>
-                        <PictureWithCaption height={400} width={700} heightVar={"h-400"} widthVar={"w-700"} imageAddress={'pasta.jpeg'} caption={"Seattle Dinner Club"}/>
+                        <PictureWithCaption height={500} width={875} heightVar={"h-500"} widthVar={"w-[875px]"} imageAddress={'pasta.jpeg'} caption={"Seattle Dinner Club"}/>
                     </div>
                 </Link>
                 <Link  href={"/posts/dinnerClub"}>
                     <div className={"cursor-pointer " + utilStyles.displayMenuPicsContainer}>
-                        <PictureWithCaption height={400} width={700} heightVar={"h-400"} widthVar={"w-700"} imageAddress={'boat.jpeg'} caption={"About Me"}/>
+                        <PictureWithCaption height={500} width={875} heightVar={"h-500"} widthVar={"w-[875px]"} imageAddress={'boat.jpeg'} caption={"About Me"}/>
                     </div>
                 </Link>
             </div>

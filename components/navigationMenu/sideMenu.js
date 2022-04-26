@@ -5,6 +5,7 @@ import Image from "next/image";
 import SideMenuItem from "./sideMenuItem";
 import SideMenuCategory from "./sideMenuCategory";
 import ChildMenuItem from "./childMenuItem";
+import Link from "next/link";
 export default function SideMenu({open, onClick}) {
     const extraMenuClass = open ? styles.sideMenuOpen : styles.sideMenuClosed;
     const hamburgerMenuClass = open ? styles.hamburgerMenuOpen: styles.hamburgerMenuClose;
@@ -14,9 +15,6 @@ export default function SideMenu({open, onClick}) {
     );
     const rayTracing = (
         <ChildMenuItem open={open} link='/posts/rayTracing'>Ray Tracing</ChildMenuItem>
-    );
-    const particleSimulation = (
-        <ChildMenuItem open={open} link='/posts/particleSimulation'>Particle Simulation</ChildMenuItem>
     );
     return (
        <div className="flex sticky top-0">
@@ -28,16 +26,28 @@ export default function SideMenu({open, onClick}) {
                </div>
 
            </div>
-           <div className={styles.hamburgerMenu + ' ' + hamburgerMenuClass}>
+           <div className={'flex ' + styles.hamburgerMenu + ' ' + hamburgerMenuClass}>
                <div className={styles.hamburgerContainer } onClick={() => onClick()}>
                    <Image
                        priority
                        src="/images/hamburgerMenu.png"
                        className={styles.hamburger}
-                       height={45}
-                       width={45}
+                       height={65}
+                       width={65}
                        alt="hamburger"
                    />
+               </div>
+               <div className={styles.homeContainer + ' cursor-pointer'}>
+                   <Link href={'/'} >
+                       <Image
+                           priority
+                           src="/images/home-button.svg"
+                           className={styles.hamburger}
+                           height={65}
+                           width={65}
+                           alt="home"
+                       />
+                   </Link>
                </div>
            </div>
 

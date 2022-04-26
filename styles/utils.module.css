@@ -124,10 +124,8 @@
 
 .dinnerPicDiv {
     position: relative;
-    margin-top: 35px;
     display: flex;
     justify-content: center;
-    margin-bottom: 10px;
 }
 
 .hideCaption {
