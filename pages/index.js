@@ -12,29 +12,28 @@ export default function Home() {
                 <title>{siteTitle}</title>
             </Head>
             <div className={" mt-5 " + utilStyles.displayMenuPicsTotal}>
-
-                <Link href={"/posts/particleSimulation"}>
-                    <div className={"cursor-pointer " + utilStyles.displayMenuPicsContainer}>
+                <div className={"mt-24 cursor-pointer " + utilStyles.displayMenuPicsContainer}>
+                    <Link href={"/posts/particleSimulation"}>
                         <PictureWithCaption height={500} width={875} heightVar={"h-500"} widthVar={"w-[875px]"} imageAddress={'particleStill.png'} caption={"Fluid Particle Simulation"}/>
-                    </div>
-                </Link>
-                <Link href={"/posts/rayTracing"}>
-                    <div className={"cursor-pointer " + utilStyles.displayMenuPicsContainer}>
+                    </Link>
+                </div>
+                <div className={"mt-24 cursor-pointer " + utilStyles.displayMenuPicsContainer}>
+                    <Link href={"/posts/rayTracing"}>
                         <PictureWithCaption height={500} width={875} heightVar={"h-500"} widthVar={"w-[875px]"} imageAddress={'rayTracingStill.png'} caption={"Ray Tracing"}/>
-                    </div>
-                </Link>
+                    </Link>
+                </div>
             </div>
             <div className={" " + utilStyles.displayMenuPicsTotal}>
-                <Link href={"/posts/dinnerClub"}>
-                    <div className={"cursor-pointer " + utilStyles.displayMenuPicsContainer}>
+                <div className={"mt-24 cursor-pointer " + utilStyles.displayMenuPicsContainer}>
+                    <Link href={"/posts/dinnerClub"}>
                         <PictureWithCaption height={500} width={875} heightVar={"h-500"} widthVar={"w-[875px]"} imageAddress={'pasta.jpeg'} caption={"Seattle Dinner Club"}/>
-                    </div>
-                </Link>
-                <Link  href={"/posts/dinnerClub"}>
-                    <div className={"cursor-pointer " + utilStyles.displayMenuPicsContainer}>
+                    </Link>
+                </div>
+                <div className={"mt-24 cursor-pointer " + utilStyles.displayMenuPicsContainer}>
+                    <Link  href={"/posts/aboutMe"}>
                         <PictureWithCaption height={500} width={875} heightVar={"h-500"} widthVar={"w-[875px]"} imageAddress={'boat.jpeg'} caption={"About Me"}/>
-                    </div>
-                </Link>
+                    </Link>
+                </div>
             </div>
             <section className={utilStyles.headingMd}>
             </section>
