@@ -19,7 +19,7 @@ export default function Home() {
                 </div>
                 <div className={"mt-24 cursor-pointer " + utilStyles.displayMenuPicsContainer}>
                     <Link href={"/posts/rayTracing"}>
-                        <PictureWithCaption height={500} width={875} heightVar={"h-500"} widthVar={"w-[875px]"} imageAddress={'rayTracingStill.png'} caption={"Ray Tracing"}/>
+                        <PictureWithCaption height={500} width={875} heightVar={"h-500"} widthVar={"w-[875px]"} imageAddress={'RayTracingStill.png'} caption={"Ray Tracing"}/>
                     </Link>
                 </div>
             </div>
