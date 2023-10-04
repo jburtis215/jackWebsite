@@ -4,7 +4,7 @@ import { OpenAI } from 'openai';
 import React, { useState, useCallback } from "react";
 require('dotenv').config()
 const openai = new OpenAI({
-    apiKey: process.env.OPENAI_API_KEY,
+    apiKey: process.env.REACT_APP_OPENAI_API_KEY,
 });
 
 export default class AiTester extends React.Component {
